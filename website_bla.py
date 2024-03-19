@@ -55,7 +55,7 @@ def main():
 
     program = st.text_input("PROGRAM","Type Here") 
     sldu = st.text_input("SLDU","Type Here")
-    ldu_options = ["Option 1", "Option 2", "Option 3"]
+    sldu_options = ["Option 1", "Option 2", "Option 3"]
     selected_sldu = st.selectbox("SLDU", sldu_options)
 
     # If the selected option is "Type Here", show a text input box
