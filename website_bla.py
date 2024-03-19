@@ -130,7 +130,7 @@ def main():
     padding: 8px 16px;
     border-radius: 5px;
     margin-top: 10px;
-    text-align: center; /* Center the button horizontally */
+    text-align: right; /* Center the button horizontally */
 }
 
         </style>
