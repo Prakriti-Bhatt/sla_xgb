@@ -135,7 +135,17 @@ def main():
     text-align: center; /* Center the button horizontally */
 }
 
-
+st.markdown(
+        """
+        <style>
+            /* Changing overall background color */
+            body {
+                background-color: #f0f0f0; /* Change to the color you want */
+            }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
         </style>
         """,
         unsafe_allow_html=True
