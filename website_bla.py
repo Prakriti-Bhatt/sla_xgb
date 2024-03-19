@@ -20,8 +20,11 @@ def predict_note_authentication(sldu,smu,work_bots,user_supported,total_incident
     encoded_smu = dict_smu[smu]
     
     prediction=final_model.predict([[encoded_sldu,encoded_smu,work_bots,user_supported,total_incidents,reopened,sr_resolved,same_day_sr,total_sr,sr_l1,l3,l2,incident_l1,first_hop,automation,same_day_incidents,reassigned,backlog,fte,incidents_resolved,team]])
-    print(prediction)
-    return prediction
+    if prediction == 1 :
+        pred = 'MET'
+    else :
+        pred = 'NOT MET'
+    return pred
 
 
 def main():
