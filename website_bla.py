@@ -106,6 +106,7 @@ def main():
         """
         <style>
             body {
+            background-color: #f0f0f0; 
                 font-family: Arial, sans-serif;
                 background-color: #ffffff;
                 color: #333;
@@ -135,17 +136,7 @@ def main():
     text-align: center; /* Center the button horizontally */
 }
 
-st.markdown(
-        """
-        <style>
-            
-            body {
-                background-color: #f0f0f0; 
-            }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+
         </style>
         """,
         unsafe_allow_html=True
