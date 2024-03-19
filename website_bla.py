@@ -55,6 +55,15 @@ def main():
 
     program = st.text_input("PROGRAM","Type Here") 
     sldu = st.text_input("SLDU","Type Here")
+    ldu_options = ["Option 1", "Option 2", "Option 3"]
+    selected_sldu = st.selectbox("SLDU", sldu_options)
+
+    # If the selected option is "Type Here", show a text input box
+    if selected_sldu == "Type Here":
+        custom_sldu = st.text_input("Enter custom SLDU", "")
+        st.write("You entered:", custom_sldu)
+    else:
+        st.write("You selected:", selected_sldu)
     smu = st.text_input("SMU","Type Here")
     work_bots = st.text_input("Work done by BOTs","Type Here")
     user_supported = st.text_input("Users Supported","Type Here")
