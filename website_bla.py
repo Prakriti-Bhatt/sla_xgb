@@ -43,7 +43,6 @@ def main():
     """
     st.markdown(html_content, unsafe_allow_html=True)
 
-    st.markdown(html_temp,unsafe_allow_html=True)
     sldu = st.text_input("SLDU","Type Here")
     smu = st.text_input("SMU","Type Here")
     work_bots = st.text_input("Work done by BOTs","Type Here")
