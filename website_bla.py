@@ -59,7 +59,7 @@ def main():
     sldu = st.selectbox("SLDU", sldu_options)
 
     # If the selected option is "Type Here", show a text input box
-    if selected_sldu == "Type Here":
+    if sldu == "Type Here":
         custom_sldu = st.text_input("Enter custom SLDU", "")
         st.write("You entered:", custom_sldu)
     
@@ -68,9 +68,9 @@ def main():
     smu = st.selectbox("SMU", smu_options)
 
     # If the selected option is "Type Here", show a text input box
-    if selected_sldu == "Type Here":
-        custom_sldu = st.text_input("Enter custom SLDU", "")
-        st.write("You entered:", custom_sldu)
+    if smu == "Type Here":
+        custom_smu = st.text_input("Enter custom SMU", "")
+        st.write("You entered:", custom_smu)
     work_bots = st.text_input("Work done by BOTs","Type Here")
     user_supported = st.text_input("Users Supported","Type Here")
     total_incidents = st.text_input("Total Number of Incidents Reported/Received","Type Here")
