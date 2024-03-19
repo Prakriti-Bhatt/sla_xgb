@@ -138,9 +138,9 @@ def main():
 st.markdown(
         """
         <style>
-            /* Changing overall background color */
+            
             body {
-                background-color: #f0f0f0; /* Change to the color you want */
+                background-color: #f0f0f0; 
             }
         </style>
         """,
