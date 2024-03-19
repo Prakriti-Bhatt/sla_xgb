@@ -123,14 +123,16 @@ def main():
                 border-radius: 4px;
             }
             button {
-                cursor: pointer;
-                background-color:#ffffff;
-                color:#007bff;
-                border:none;
-                padding:8px 16px;
-                border-radius:5px;
-                margin-top:10px;
-            }
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #008B8B; /* Updated color */
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center; /* Center the button horizontally */
+}
+
         </style>
         """,
         unsafe_allow_html=True
