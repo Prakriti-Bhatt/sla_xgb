@@ -124,16 +124,17 @@ def main():
                 border: 1px solid #007bff;
                 border-radius: 4px;
             }
-            button {
+           button {
     cursor: pointer;
-    background-color: #008B8B;
-    color: #008B8B; 
+    background-color: red; /* Updated color */
+    color: white; /* Text color */
     border: none;
     padding: 8px 16px;
     border-radius: 5px;
     margin-top: 10px;
-    text-align: right; /* Center the button horizontally */
+    text-align: center; /* Center the button horizontally */
 }
+
 
         </style>
         """,
