@@ -7,7 +7,7 @@ def main():
 
     # HTML content
     html_content = """
-    <div style="background-color:#007bff;padding:20px;border-radius:10px;">
+    <div style="background-color:#AFEEEE	;padding:20px;border-radius:10px;">
         <h2 style="color:#ffffff;">Welcome to my Streamlit website!</h2>
         <p style="color:#ffffff;">This is a basic website built using Streamlit with HTML, CSS, and JavaScript.</p>
     </div>
