@@ -29,6 +29,7 @@ def predict_note_authentication(sldu,smu,work_bots,user_supported,total_incident
     return pred
 
 
+
 def main():
     st.title("Penalty SLA Prediction")
 
@@ -36,7 +37,8 @@ def main():
     st.markdown(
         """
         <style>
-            .title {
+            /* Targeting the Streamlit title class */
+            .title-container {
                 text-align: center;
             }
         </style>
