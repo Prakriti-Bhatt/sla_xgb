@@ -20,7 +20,7 @@ def main():
     # HTML content with input boxes
     html_content = """
     <div style="background-color:#008B8B;padding:20px;border-radius:10px;">
-        <h2 style="color:#ffffff;" class="title">Input your project specifics, historical data, and performance benchmarks to ensure project oversight and risks.</h2>
+        <h3 style="color:#ffffff;" class="title">Input your project specifics, historical data, and performance benchmarks to ensure project oversight and risks.</h3>
         <form>
             <!-- Generate 22 input boxes -->
             <label for="input1" style="color:#ffffff;">Input 1:</label><br>
