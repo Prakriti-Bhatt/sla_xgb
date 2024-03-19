@@ -7,9 +7,9 @@ def main():
 
     # HTML content
     html_content = """
-    <div style="background-color:#f0f0f0;padding:10px;border-radius:10px;">
-        <h2 style="color:#333;">Welcome to my Streamlit website!</h2>
-        <p>This is a basic website built using Streamlit with HTML, CSS, and JavaScript.</p>
+    <div style="background-color:#007bff;padding:20px;border-radius:10px;">
+        <h2 style="color:#ffffff;">Welcome to my Streamlit website!</h2>
+        <p style="color:#ffffff;">This is a basic website built using Streamlit with HTML, CSS, and JavaScript.</p>
     </div>
     """
     st.markdown(html_content, unsafe_allow_html=True)
@@ -20,13 +20,14 @@ def main():
         <style>
             body {
                 font-family: Arial, sans-serif;
-                background-color: #e6e6e6;
+                background-color: #ffffff;
+                color: #333;
             }
             h2 {
-                color: #0066cc;
+                color: #007bff;
             }
             p {
-                color: #333;
+                color: #007bff;
             }
         </style>
         """,
