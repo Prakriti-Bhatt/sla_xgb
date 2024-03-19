@@ -53,43 +53,43 @@ def main():
     """
     st.markdown(html_content, unsafe_allow_html=True)
 
-    program = st.text_input("PROGRAM","Type Here") 
-    #sldu = st.text_input("SLDU","Type Here")
+    program = st.text_input("PROGRAM"," ") 
+    #sldu = st.text_input("SLDU"," ")
     sldu_options = ['ENGG-DELIVERY UNIT-AMERICAS 1', 'ENGG-DELIVERY UNIT-AMERICAS 2', 'ENGG-DELIVERY UNIT-APMEA', 'ENGG-DELIVERY UNIT-EUROPE', 'FSC-CIS-DELIVERY UNIT-AMERICAS 1', 'FSC-CIS-DELIVERY UNIT-AMERICAS 2', 'FSC-CIS-DELIVERY UNIT-APMEA', 'FSC-CIS-DELIVERY UNIT-EUROPE', 'FSC-WDC-DELIVERY UNIT-AMERICAS 1', 'FSC-WDC-DELIVERY UNIT-AMERICAS 2', 'FSC-WDC-DELIVERY UNIT-APMEA', 'FSC-WDC-DELIVERY UNIT-EUROPE', 'NO EH', 'WEF-CRS-DELIVERY UNIT-AMERICAS 1', 'WEF-CRS-DELIVERY UNIT-AMERICAS 2', 'WEF-CRS-DELIVERY UNIT-APMEA', 'WEF-CRS-DELIVERY UNIT-EUROPE', 'WEF-DA&I-DELIVERY UNIT-AMERICAS 1', 'WEF-DA&I-DELIVERY UNIT-AMERICAS 2', 'WEF-DA&I-DELIVERY UNIT-APMEA', 'WEF-DA&I-DELIVERY UNIT-EUROPE', 'WEF-EA-DELIVERY UNIT-AMERICAS 1', 'WEF-EA-DELIVERY UNIT-AMERICAS 2', 'WEF-EA-DELIVERY UNIT-APMEA', 'WEF-EA-DELIVERY UNIT-EUROPE']
     sldu = st.selectbox("SLDU", sldu_options)
 
-    # If the selected option is "Type Here", show a text input box
-    if sldu == "Type Here":
-        custom_sldu = st.text_input("Enter custom SLDU", "")
+    # If the selected option is " ", show a text input box
+    if sldu == " ":
+        custom_sldu = st.text_input("Enter custom SLDU" )
         st.write("You entered:", custom_sldu)
     
-    #smu = st.text_input("SMU","Type Here")
+    #smu = st.text_input("SMU"," ")
     smu_options = ['AMERICAS 1', 'AMERICAS 2', 'AMERICAS1', 'AMERICAS2', 'APMEA', 'Americas 1', 'Americas 2', 'EUROPE', 'Europe', 'NO SMU']
     smu = st.selectbox("SMU", smu_options)
 
-    # If the selected option is "Type Here", show a text input box
-    if smu == "Type Here":
-        custom_smu = st.text_input("Enter custom SMU", "")
+    # If the selected option is " ", show a text input box
+    if smu == " ":
+        custom_smu = st.text_input("Enter custom SMU" )
         st.write("You entered:", custom_smu)
     work_bots = st.text_input("Work done by BOTs")
-    user_supported = st.text_input("Users Supported","Type Here")
-    total_incidents = st.text_input("Total Number of Incidents Reported/Received","Type Here")
-    reopened = st.text_input("Tickets Reopened","Type Here")
-    sr_resolved = st.text_input("Service Requests resolved in the month","Type Here")
-    same_day_sr = st.text_input("Same Day Resolution % of Service Requests","Type Here")
-    total_sr = st.text_input("Number of Service Requests received","Type Here")
-    sr_l1 = st.text_input("Number of Service Requests resolved by L1/L1.5 team","Type Here")
-    l3 = st.text_input("Number of Incidents resolved by L3 and above team","Type Here")
-    l2 = st.text_input("Number of Incidents resolved by L2 team","Type Here")
-    incident_l1 = st.text_input("Number of Incidents resolved by L1/L1.5 team","Type Here")
-    first_hop = st.text_input("Number of first hop resolved Incidents","Type Here")
-    automation = st.text_input("% Tickets ( Incidents and Service Requests ) fully resolved through automation","Type Here")
-    same_day_incidents = st.text_input("% Same Day Resolution of Incidents","Type Here")
-    reassigned = st.text_input("% Re-Assigned Incidents more than twice","Type Here")
-    backlog = st.text_input(" Overall Backlog Index (Incidents + SRs)","Type Here")
-    fte = st.text_input("% FTE beyond SmartOps (Rest of the team)","Type Here")
-    incidents_resolved = st.text_input("TOTAL INCIDENTS ","Type Here")
-    team = st.text_input("Team Size ","Type Here")
+    user_supported = st.text_input("Users Supported")
+    total_incidents = st.text_input("Total Number of Incidents Reported/Received")
+    reopened = st.text_input("Tickets Reopened")
+    sr_resolved = st.text_input("Service Requests resolved in the month")
+    same_day_sr = st.text_input("Same Day Resolution % of Service Requests")
+    total_sr = st.text_input("Number of Service Requests received")
+    sr_l1 = st.text_input("Number of Service Requests resolved by L1/L1.5 team")
+    l3 = st.text_input("Number of Incidents resolved by L3 and above team")
+    l2 = st.text_input("Number of Incidents resolved by L2 team")
+    incident_l1 = st.text_input("Number of Incidents resolved by L1/L1.5 team")
+    first_hop = st.text_input("Number of first hop resolved Incidents")
+    automation = st.text_input("% Tickets ( Incidents and Service Requests ) fully resolved through automation")
+    same_day_incidents = st.text_input("% Same Day Resolution of Incidents")
+    reassigned = st.text_input("% Re-Assigned Incidents more than twice")
+    backlog = st.text_input(" Overall Backlog Index (Incidents + SRs)")
+    fte = st.text_input("% FTE beyond SmartOps (Rest of the team)")
+    incidents_resolved = st.text_input("TOTAL INCIDENTS ")
+    team = st.text_input("Team Size ")
     
     result=""
     if st.button("Predict"):
