@@ -29,7 +29,7 @@ def main():
     # HTML content with input boxes
     html_content = """
     <div style="background-color:#008B8B;padding:20px;border-radius:10px;">
-        <h5 style="color:#ffffff;" class="title">Input your project specifics, historical data, and performance benchmarks to ensure project oversight and risks.</h5>
+        <h4 style="color:#ffffff;" class="title">Input your project specifics, historical data, and performance benchmarks to ensure project oversight and risks.</h4>
     </div>
     """
     st.markdown(html_content, unsafe_allow_html=True)
