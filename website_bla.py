@@ -4,7 +4,7 @@ import streamlit as st
 import numpy as np
 import pickle
 import pandas as pd
-
+import xgboost
 from PIL import Image
 
 pickle_in = open("final_model.pkl","rb")
