@@ -20,7 +20,7 @@ def main():
     # HTML content with input boxes
     html_content = """
     <div style="background-color:#007bff;padding:20px;border-radius:10px;">
-        <h2 style="color:#ffffff;" class="title">Welcome to my Streamlit website!</h2>
+        <h2 style="color:#ffffff;" class="title">Input your project specifics, historical data, and performance benchmarks to ensure project oversight and risks.</h2>
         <form>
             <!-- Generate 22 input boxes -->
             <label for="input1" style="color:#ffffff;">Input 1:</label><br>
