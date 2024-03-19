@@ -124,8 +124,8 @@ def main():
             }
             button {
     cursor: pointer;
-    background-color: #ffffff;
-    color: #008B8B; /* Updated color */
+    background-color: #008B8B;
+    color: #008B8B; 
     border: none;
     padding: 8px 16px;
     border-radius: 5px;
