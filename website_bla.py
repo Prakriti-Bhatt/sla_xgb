@@ -19,9 +19,12 @@ def main():
 
     # Input form
     st.sidebar.header("Input Parameters")
-    inputs = []
-    for i in range(1, 23):
-        inputs.append(st.sidebar.text_input(f"Input {i}"))
+
+    inputs_left = []
+    inputs_right = []
+    for i in range(1, 12):
+        inputs_left.append(st.sidebar.text_input(f"Input {i} Left"))
+        inputs_right.append(st.sidebar.text_input(f"Input {i} Right"))
 
     # HTML content with input boxes
     html_content = """
