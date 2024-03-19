@@ -54,16 +54,23 @@ def main():
     st.markdown(html_content, unsafe_allow_html=True)
 
     program = st.text_input("PROGRAM","Type Here") 
-    sldu = st.text_input("SLDU","Type Here")
-    sldu_options = ["Option 1", "Option 2", "Option 3"]
-    selected_sldu = st.selectbox("SLDU", sldu_options)
+    #sldu = st.text_input("SLDU","Type Here")
+    sldu_options = ['ENGG-DELIVERY UNIT-AMERICAS 1', 'ENGG-DELIVERY UNIT-AMERICAS 2', 'ENGG-DELIVERY UNIT-APMEA', 'ENGG-DELIVERY UNIT-EUROPE', 'FSC-CIS-DELIVERY UNIT-AMERICAS 1', 'FSC-CIS-DELIVERY UNIT-AMERICAS 2', 'FSC-CIS-DELIVERY UNIT-APMEA', 'FSC-CIS-DELIVERY UNIT-EUROPE', 'FSC-WDC-DELIVERY UNIT-AMERICAS 1', 'FSC-WDC-DELIVERY UNIT-AMERICAS 2', 'FSC-WDC-DELIVERY UNIT-APMEA', 'FSC-WDC-DELIVERY UNIT-EUROPE', 'NO EH', 'WEF-CRS-DELIVERY UNIT-AMERICAS 1', 'WEF-CRS-DELIVERY UNIT-AMERICAS 2', 'WEF-CRS-DELIVERY UNIT-APMEA', 'WEF-CRS-DELIVERY UNIT-EUROPE', 'WEF-DA&I-DELIVERY UNIT-AMERICAS 1', 'WEF-DA&I-DELIVERY UNIT-AMERICAS 2', 'WEF-DA&I-DELIVERY UNIT-APMEA', 'WEF-DA&I-DELIVERY UNIT-EUROPE', 'WEF-EA-DELIVERY UNIT-AMERICAS 1', 'WEF-EA-DELIVERY UNIT-AMERICAS 2', 'WEF-EA-DELIVERY UNIT-APMEA', 'WEF-EA-DELIVERY UNIT-EUROPE']
+    sldu = st.selectbox("SLDU", sldu_options)
 
     # If the selected option is "Type Here", show a text input box
     if selected_sldu == "Type Here":
         custom_sldu = st.text_input("Enter custom SLDU", "")
         st.write("You entered:", custom_sldu)
     
-    smu = st.text_input("SMU","Type Here")
+    #smu = st.text_input("SMU","Type Here")
+    smu_options = ['AMERICAS 1', 'AMERICAS 2', 'AMERICAS1', 'AMERICAS2', 'APMEA', 'Americas 1', 'Americas 2', 'EUROPE', 'Europe', 'NO SMU']
+    smu = st.selectbox("SMU", smu_options)
+
+    # If the selected option is "Type Here", show a text input box
+    if selected_sldu == "Type Here":
+        custom_sldu = st.text_input("Enter custom SLDU", "")
+        st.write("You entered:", custom_sldu)
     work_bots = st.text_input("Work done by BOTs","Type Here")
     user_supported = st.text_input("Users Supported","Type Here")
     total_incidents = st.text_input("Total Number of Incidents Reported/Received","Type Here")
