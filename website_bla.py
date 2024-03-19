@@ -71,7 +71,7 @@ def main():
     if smu == "Type Here":
         custom_smu = st.text_input("Enter custom SMU", "")
         st.write("You entered:", custom_smu)
-    work_bots = st.text_input("Work done by BOTs","Type Here")
+    work_bots = st.text_input("Work done by BOTs")
     user_supported = st.text_input("Users Supported","Type Here")
     total_incidents = st.text_input("Total Number of Incidents Reported/Received","Type Here")
     reopened = st.text_input("Tickets Reopened","Type Here")
