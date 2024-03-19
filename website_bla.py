@@ -3,7 +3,7 @@
 import streamlit as st
 
 def main():
-    st.title("Streamlit Basic Website")
+    st.title("Penalty SLA Prediction")
 
     # CSS styling for centering the title
     st.markdown(
