@@ -22,11 +22,7 @@ def predict_note_authentication(sldu,smu,work_bots,user_supported,total_incident
     #encoded_smu = dict_smu.get(smu, 0)  
     
     prediction=final_model.predict([[0,1,work_bots,user_supported,total_incidents,reopened,sr_resolved,same_day_sr,total_sr,sr_l1,l3,l2,incident_l1,first_hop,automation,same_day_incidents,reassigned,backlog,fte,incidents_resolved,team]])
-    if prediction == 1 :
-        pred = 'MET'
-    else :
-        pred = 'NOT MET'
-    return pred
+    return prediction
 
 
 
@@ -98,6 +94,11 @@ def main():
     result=""
     if st.button("Predict"):
         result=predict_note_authentication(sldu,smu,work_bots,user_supported,total_incidents,reopened,sr_resolved,same_day_sr,total_sr,sr_l1,l3,l2,incident_l1,first_hop,automation,same_day_incidents,reassigned,backlog,fte,incidents_resolved,team)
+        if result == 1 :
+            res = "Program will meet 99.5% or above Penalty SLAs"
+        else :
+            res = "Program will not meet 99.5% or above Penalty SLAs"
+    
     st.success('The output is {}'.format(result))
 
     
