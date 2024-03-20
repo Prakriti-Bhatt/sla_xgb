@@ -15,12 +15,12 @@ def predict_note_authentication(sldu,smu,work_bots,user_supported,total_incident
     dict_sldu = {'ENGG-DELIVERY UNIT-AMERICAS 1': 0, 'ENGG-DELIVERY UNIT-AMERICAS 2': 1, 'ENGG-DELIVERY UNIT-APMEA': 2, 'ENGG-DELIVERY UNIT-EUROPE': 3, 'FSC-CIS-DELIVERY UNIT-AMERICAS 1': 4, 'FSC-CIS-DELIVERY UNIT-AMERICAS 2': 5, 'FSC-CIS-DELIVERY UNIT-APMEA': 6, 'FSC-CIS-DELIVERY UNIT-EUROPE': 7, 'FSC-WDC-DELIVERY UNIT-AMERICAS 1': 8, 'FSC-WDC-DELIVERY UNIT-AMERICAS 2': 9, 'FSC-WDC-DELIVERY UNIT-APMEA': 10, 'FSC-WDC-DELIVERY UNIT-EUROPE': 11, 'NO EH': 12, 'WEF-CRS-DELIVERY UNIT-AMERICAS 1': 13, 'WEF-CRS-DELIVERY UNIT-AMERICAS 2': 14, 'WEF-CRS-DELIVERY UNIT-APMEA': 15, 'WEF-CRS-DELIVERY UNIT-EUROPE': 16, 'WEF-DA&I-DELIVERY UNIT-AMERICAS 1': 17, 'WEF-DA&I-DELIVERY UNIT-AMERICAS 2': 18, 'WEF-DA&I-DELIVERY UNIT-APMEA': 19, 'WEF-DA&I-DELIVERY UNIT-EUROPE': 20, 'WEF-EA-DELIVERY UNIT-AMERICAS 1': 21, 'WEF-EA-DELIVERY UNIT-AMERICAS 2': 22, 'WEF-EA-DELIVERY UNIT-APMEA': 23, 'WEF-EA-DELIVERY UNIT-EUROPE': 24}
     
     dict_smu = {'AMERICAS 1': 0, 'AMERICAS 2': 1, 'APMEA': 2, 'EUROPE': 3, 'NO SMU': 4}
-
+    print("nkv")
     encoded_sldu = dict_sldu[sldu]
     encoded_smu = dict_smu[smu]
     #encoded_sldu = dict_sldu.get(sldu, 0)   Use default value 0 if sldu is not found in the dictionary
     #encoded_smu = dict_smu.get(smu, 0)  
-    
+    print("fkfg")
     prediction=final_model.predict([[0,1,work_bots,user_supported,total_incidents,reopened,sr_resolved,same_day_sr,total_sr,sr_l1,l3,l2,incident_l1,first_hop,automation,same_day_incidents,reassigned,backlog,fte,incidents_resolved,team]])
     return prediction
 
