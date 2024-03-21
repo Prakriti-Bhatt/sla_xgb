@@ -19,8 +19,15 @@ dict_smu = {'AMERICAS 1': 0, 'AMERICAS 2': 1, 'APMEA': 2, 'EUROPE': 3, 'NO SMU':
 
 def predict_note_authentication(sldu, smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team):
     
+    # Create a list of input features
+    input_features = [sldu, smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team]
+    
+    # Replace empty strings with NaN values in input features
+    for i in range(len(input_features)):
+        input_features[i] = np.nan if input_features[i] == "" else input_features[i]
+    
     # Convert the input features into a numpy array with dtype=object
-    feat_list = np.array([sldu, smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team], dtype=object)
+    feat_list = np.array(input_features, dtype=object)
     
     # Predict using the model
     prediction = model.predict([feat_list])
