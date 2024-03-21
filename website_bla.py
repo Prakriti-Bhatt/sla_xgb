@@ -8,8 +8,8 @@ import xgboost
 from joblib import load  # Import the load function from joblib
 from PIL import Image
 
-pickle_in = open("final_model.pkl","rb")
-final_model=pickle.load(pickle_in)
+#pickle_in = open("final_model.pkl","rb")
+#final_model=pickle.load(pickle_in)
 
 model = load('final_model.joblib')
 
