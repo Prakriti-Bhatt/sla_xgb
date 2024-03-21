@@ -69,7 +69,7 @@ def main():
         st.write("You entered:", custom_sldu)
     
     #smu = st.text_input("SMU"," ")
-    smu_options = ['AMERICAS 1', 'AMERICAS 2', 'AMERICAS1', 'AMERICAS2', 'APMEA', 'Americas 1', 'Americas 2', 'EUROPE', 'Europe', 'NO SMU']
+    smu_options = ['AMERICAS 1', 'AMERICAS 2', 'APMEA', 'EUROPE', 'NO SMU']
     smu = st.selectbox("SMU", smu_options)
 
     # If the selected option is " ", show a text input box
