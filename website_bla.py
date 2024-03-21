@@ -24,6 +24,27 @@ def predict_note_authentication(sldu,smu,work_bots,user_supported,total_incident
     #encoded_smu = dict_smu.get(smu, 0) 
     #encoded_sldu = dict_sldu.get(sldu.encode('utf-8', 'ignore').decode(), 0)
     #encoded_smu = dict_smu.get(smu.encode('utf-8', 'ignore').decode(), 0)
+
+
+    work_bots = float(work_bots)
+    user_supported = float(user_supported)
+    total_incidents = float(total_incidents)
+    reopened = float(reopened)
+    sr_resolved = float(sr_resolved)
+    same_day_sr = float(same_day_sr)
+    total_sr = float(total_sr)
+    sr_l1 = float(sr_l1)
+    l3 = float(l3)
+    l2 = float(l2)
+    incident_l1 = float(incident_l1)
+    first_hop = float(first_hop)
+    automation = float(automation)
+    same_day_incidents = float(same_day_incidents)
+    reassigned = float(reassigned)
+    backlog = float(backlog)
+    fte = float(fte)
+    incidents_resolved = float(incidents_resolved)
+    team = float(team)
     
     prediction = model.predict([[0,1,work_bots,user_supported,total_incidents,reopened,sr_resolved,same_day_sr,total_sr,sr_l1,l3,l2,incident_l1,first_hop,automation,same_day_incidents,reassigned,backlog,fte,incidents_resolved,team]])
     return prediction
