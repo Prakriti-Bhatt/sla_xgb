@@ -3,30 +3,28 @@
 import streamlit as st
 import numpy as np
 import pickle
-import pandas as pd
-import xgboost
-from joblib import load  # Import the load function from joblib
-from PIL import Image
 
-#pickle_in = open("final_model.pkl","rb")
-#final_model=pickle.load(pickle_in)
 
-model = load('final_model.joblib')
+# Load the model
+model_pkl_file = "final_model_try.pkl"
+with open(model_pkl_file, 'rb') as file:
+    model = pickle.load(file)
 
-def predict_note_authentication(sldu,smu,work_bots,user_supported,total_incidents,reopened,sr_resolved,same_day_sr,total_sr,sr_l1,l3,l2,incident_l1,first_hop,automation,same_day_incidents,reassigned,backlog,fte,incidents_resolved,team):
-    dict_sldu = {'ENGG-DELIVERY UNIT-AMERICAS 1': 0, 'ENGG-DELIVERY UNIT-AMERICAS 2': 1, 'ENGG-DELIVERY UNIT-APMEA': 2, 'ENGG-DELIVERY UNIT-EUROPE': 3, 'FSC-CIS-DELIVERY UNIT-AMERICAS 1': 4, 'FSC-CIS-DELIVERY UNIT-AMERICAS 2': 5, 'FSC-CIS-DELIVERY UNIT-APMEA': 6, 'FSC-CIS-DELIVERY UNIT-EUROPE': 7, 'FSC-WDC-DELIVERY UNIT-AMERICAS 1': 8, 'FSC-WDC-DELIVERY UNIT-AMERICAS 2': 9, 'FSC-WDC-DELIVERY UNIT-APMEA': 10, 'FSC-WDC-DELIVERY UNIT-EUROPE': 11, 'NO EH': 12, 'WEF-CRS-DELIVERY UNIT-AMERICAS 1': 13, 'WEF-CRS-DELIVERY UNIT-AMERICAS 2': 14, 'WEF-CRS-DELIVERY UNIT-APMEA': 15, 'WEF-CRS-DELIVERY UNIT-EUROPE': 16, 'WEF-DA&I-DELIVERY UNIT-AMERICAS 1': 17, 'WEF-DA&I-DELIVERY UNIT-AMERICAS 2': 18, 'WEF-DA&I-DELIVERY UNIT-APMEA': 19, 'WEF-DA&I-DELIVERY UNIT-EUROPE': 20, 'WEF-EA-DELIVERY UNIT-AMERICAS 1': 21, 'WEF-EA-DELIVERY UNIT-AMERICAS 2': 22, 'WEF-EA-DELIVERY UNIT-APMEA': 23, 'WEF-EA-DELIVERY UNIT-EUROPE': 24}
+dict_sldu = {'ENGG-DELIVERY UNIT-AMERICAS 1': 0, 'ENGG-DELIVERY UNIT-AMERICAS 2': 1, 'ENGG-DELIVERY UNIT-APMEA': 2, 'ENGG-DELIVERY UNIT-EUROPE': 3, 'FSC-CIS-DELIVERY UNIT-AMERICAS 1': 4, 'FSC-CIS-DELIVERY UNIT-AMERICAS 2': 5, 'FSC-CIS-DELIVERY UNIT-APMEA': 6, 'FSC-CIS-DELIVERY UNIT-EUROPE': 7, 'FSC-WDC-DELIVERY UNIT-AMERICAS 1': 8, 'FSC-WDC-DELIVERY UNIT-AMERICAS 2': 9, 'FSC-WDC-DELIVERY UNIT-APMEA': 10, 'FSC-WDC-DELIVERY UNIT-EUROPE': 11, 'NO EH': 12, 'WEF-CRS-DELIVERY UNIT-AMERICAS 1': 13, 'WEF-CRS-DELIVERY UNIT-AMERICAS 2': 14, 'WEF-CRS-DELIVERY UNIT-APMEA': 15, 'WEF-CRS-DELIVERY UNIT-EUROPE': 16, 'WEF-DA&I-DELIVERY UNIT-AMERICAS 1': 17, 'WEF-DA&I-DELIVERY UNIT-AMERICAS 2': 18, 'WEF-DA&I-DELIVERY UNIT-APMEA': 19, 'WEF-DA&I-DELIVERY UNIT-EUROPE': 20, 'WEF-EA-DELIVERY UNIT-AMERICAS 1': 21, 'WEF-EA-DELIVERY UNIT-AMERICAS 2': 22, 'WEF-EA-DELIVERY UNIT-APMEA': 23, 'WEF-EA-DELIVERY UNIT-EUROPE': 24}
     
-    dict_smu = {'AMERICAS 1': 0, 'AMERICAS 2': 1, 'APMEA': 2, 'EUROPE': 3, 'NO SMU': 4}
-    
-    encoded_sldu = dict_sldu[sldu]
-    encoded_smu = dict_smu[smu]
-    #encoded_sldu = dict_sldu.get(sldu, 0)   #Use default value 0 if sldu is not found in the dictionary
-    #encoded_smu = dict_smu.get(smu, 0) 
-    #encoded_sldu = dict_sldu.get(sldu.encode('utf-8', 'ignore').decode(), 0)
-    #encoded_smu = dict_smu.get(smu.encode('utf-8', 'ignore').decode(), 0)
+dict_smu = {'AMERICAS 1': 0, 'AMERICAS 2': 1, 'APMEA': 2, 'EUROPE': 3, 'NO SMU': 4}
 
+
+
+
+def predict_note_authentication(sldu, smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team):
     
-    prediction = model.predict([[0,1,work_bots,user_supported,total_incidents,reopened,sr_resolved,same_day_sr,total_sr,sr_l1,l3,l2,incident_l1,first_hop,automation,same_day_incidents,reassigned,backlog,fte,incidents_resolved,team]])
+    # Convert the input features into a numpy array with dtype=object
+    feat_list = np.array([sldu, smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team], dtype=object)
+    
+    # Predict using the model
+    prediction = model.predict([feat_list])
+    
     return prediction
 
 
@@ -59,7 +57,8 @@ def main():
     st.markdown(html_content, unsafe_allow_html=True)
 
     program = st.text_input("PROGRAM"," ") 
-    #sldu = st.text_input("SLDU"," ")
+    
+    # Selectbox for SLDU
     sldu_options = ['ENGG-DELIVERY UNIT-AMERICAS 1', 'ENGG-DELIVERY UNIT-AMERICAS 2', 'ENGG-DELIVERY UNIT-APMEA', 'ENGG-DELIVERY UNIT-EUROPE', 'FSC-CIS-DELIVERY UNIT-AMERICAS 1', 'FSC-CIS-DELIVERY UNIT-AMERICAS 2', 'FSC-CIS-DELIVERY UNIT-APMEA', 'FSC-CIS-DELIVERY UNIT-EUROPE', 'FSC-WDC-DELIVERY UNIT-AMERICAS 1', 'FSC-WDC-DELIVERY UNIT-AMERICAS 2', 'FSC-WDC-DELIVERY UNIT-APMEA', 'FSC-WDC-DELIVERY UNIT-EUROPE', 'NO EH', 'WEF-CRS-DELIVERY UNIT-AMERICAS 1', 'WEF-CRS-DELIVERY UNIT-AMERICAS 2', 'WEF-CRS-DELIVERY UNIT-APMEA', 'WEF-CRS-DELIVERY UNIT-EUROPE', 'WEF-DA&I-DELIVERY UNIT-AMERICAS 1', 'WEF-DA&I-DELIVERY UNIT-AMERICAS 2', 'WEF-DA&I-DELIVERY UNIT-APMEA', 'WEF-DA&I-DELIVERY UNIT-EUROPE', 'WEF-EA-DELIVERY UNIT-AMERICAS 1', 'WEF-EA-DELIVERY UNIT-AMERICAS 2', 'WEF-EA-DELIVERY UNIT-APMEA', 'WEF-EA-DELIVERY UNIT-EUROPE']
     sldu = st.selectbox("SLDU", sldu_options)
 
@@ -67,8 +66,10 @@ def main():
     if sldu == " ":
         custom_sldu = st.text_input("Enter custom SLDU" )
         st.write("You entered:", custom_sldu)
+    else:
+        encoded_sldu = dict_sldu[sldu]
     
-    #smu = st.text_input("SMU"," ")
+    # Selectbox for SMU
     smu_options = ['AMERICAS 1', 'AMERICAS 2', 'APMEA', 'EUROPE', 'NO SMU']
     smu = st.selectbox("SMU", smu_options)
 
@@ -76,6 +77,10 @@ def main():
     if smu == " ":
         custom_smu = st.text_input("Enter custom SMU" )
         st.write("You entered:", custom_smu)
+    else:
+        encoded_smu = dict_smu[smu]
+
+    # Other input fields
     work_bots = st.text_input("Work done by BOTs")
     user_supported = st.text_input("Users Supported")
     total_incidents = st.text_input("Total Number of Incidents Reported/Received")
@@ -96,15 +101,14 @@ def main():
     incidents_resolved = st.text_input("Total incidents received in a month ")
     team = st.text_input("Team Size ")
     
-    result=""
+    result = ""
     if st.button("Predict"):
-        result=predict_note_authentication(sldu,smu,work_bots,user_supported,total_incidents,reopened,sr_resolved,same_day_sr,total_sr,sr_l1,l3,l2,incident_l1,first_hop,automation,same_day_incidents,reassigned,backlog,fte,incidents_resolved,team)
-        if result == 1 :
-            res = "Program will meet 99.5% or above Penalty SLAs"
-        else :
-            res = "Program will not meet 99.5% or above Penalty SLAs"
-    
-    st.success('The output is {}'.format(result))
+        result = predict_note_authentication(encoded_sldu, encoded_smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team)
+        if result == 1:
+            st.success("Program will meet 99.5% or above Penalty SLAs")
+        else:
+            st.error("Program will not meet 99.5% or above Penalty SLAs")
+
 
     
     # CSS styling
