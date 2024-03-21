@@ -15,10 +15,11 @@ final_model=pickle.load(pickle_in)
 
 try:
     model = load('final_model.joblib')
-    if model is not NONE :
+    if model is not None:  
         st.write("Model loaded successfully")
 except Exception as e:
     st.error("Error loading model: {}".format(str(e)))
+
  
 
 def predict_note_authentication(sldu,smu,work_bots,user_supported,total_incidents,reopened,sr_resolved,same_day_sr,total_sr,sr_l1,l3,l2,incident_l1,first_hop,automation,same_day_incidents,reassigned,backlog,fte,incidents_resolved,team):
