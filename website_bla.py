@@ -11,7 +11,11 @@ from PIL import Image
 pickle_in = open("final_model.pkl","rb")
 final_model=pickle.load(pickle_in)
 
-model = load('final_model.joblib')
+try:
+    model = load('final_model.joblib')
+    print("Model loaded successfully")
+except Exception as e:
+    print("Error loading model:", str(e))
 
 
 def predict_note_authentication(sldu,smu,work_bots,user_supported,total_incidents,reopened,sr_resolved,same_day_sr,total_sr,sr_l1,l3,l2,incident_l1,first_hop,automation,same_day_incidents,reassigned,backlog,fte,incidents_resolved,team):
