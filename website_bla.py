@@ -5,10 +5,13 @@ import numpy as np
 import pickle
 import pandas as pd
 import xgboost
+from joblib import load
 from PIL import Image
 
 pickle_in = open("final_model.pkl","rb")
 final_model=pickle.load(pickle_in)
+
+model = load('final_model.joblib')
 
 
 def predict_note_authentication(sldu,smu,work_bots,user_supported,total_incidents,reopened,sr_resolved,same_day_sr,total_sr,sr_l1,l3,l2,incident_l1,first_hop,automation,same_day_incidents,reassigned,backlog,fte,incidents_resolved,team):
@@ -24,7 +27,7 @@ def predict_note_authentication(sldu,smu,work_bots,user_supported,total_incident
     encoded_smu = dict_smu.get(smu.encode('utf-8', 'ignore').decode(), 0)
 
     
-    prediction=final_model.predict([[0,1,work_bots,user_supported,total_incidents,reopened,sr_resolved,same_day_sr,total_sr,sr_l1,l3,l2,incident_l1,first_hop,automation,same_day_incidents,reassigned,backlog,fte,incidents_resolved,team]])
+    prediction = model.predict([[0,1,work_bots,user_supported,total_incidents,reopened,sr_resolved,same_day_sr,total_sr,sr_l1,l3,l2,incident_l1,first_hop,automation,same_day_incidents,reassigned,backlog,fte,incidents_resolved,team]])
     return prediction
 
 
