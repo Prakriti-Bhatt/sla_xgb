@@ -105,7 +105,7 @@ def main():
     reassigned = st.text_input("% Re-Assigned Incidents more than twice")
     backlog = st.text_input(" Overall Backlog Index (Incidents + SRs)")
     fte = st.text_input("% FTE beyond SmartOps (Rest of the team)")
-    incidents_resolved = st.text_input("Total incidents received in a month ")
+    incidents_resolved = st.text_input("Total incidents resolved in a month ")
     team = st.text_input("Team Size ")
     
     result = ""
