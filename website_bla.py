@@ -112,9 +112,9 @@ def main():
     if st.button("Predict"):
         result = predict_note_authentication(encoded_sldu, encoded_smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team)
         if result == 1:
-            st.success("Program will meet 99.5% or above Penalty SLAs")
+            st.success("Program will meet Penalty SLAs")
         else:
-            st.error("Program will not meet 99.5% or above Penalty SLAs")
+            st.error("Program will not meet Penalty SLAs")
 
 
     
