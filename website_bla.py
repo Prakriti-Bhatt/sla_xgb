@@ -20,7 +20,7 @@ dict_smu = {'AMERICAS 1': 0, 'AMERICAS 2': 1, 'APMEA': 2, 'EUROPE': 3, 'NO SMU':
 def predict_sla(sldu, smu, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team):
     
     # Create a list of input features
-    input_features = [sldu, smu, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team]
+    input_features = [total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team]
     
     # Replace empty strings with NaN values in input features
     for i in range(len(input_features)):
