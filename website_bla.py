@@ -103,7 +103,7 @@ def main():
     l3 = st.text_input("Number of Incidents resolved by L3 and above team")
     l2 = st.text_input("Number of Incidents resolved by L2 team")
     incident_l1 = st.text_input("Number of Incidents resolved by L1/L1.5 team")
-    #first_hop = st.text_input("Number of first hop resolved Incidents")
+    first_hop = st.text_input("Number of first hop resolved Incidents")
     automation = st.text_input("% Tickets ( Incidents and Service Requests ) fully resolved through automation")
     same_day_incidents = st.text_input("% Same Day Resolution of Incidents")
     reassigned = st.text_input("% Re-Assigned Incidents more than twice")
