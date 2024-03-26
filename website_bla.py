@@ -92,8 +92,8 @@ def main():
         encoded_smu = dict_smu[smu]
 
     # Other input fields
-    #work_bots = st.text_input("Work done by BOTs")
-    #user_supported = st.text_input("Users Supported")
+    work_bots = st.text_input("Work done by BOTs")
+    user_supported = st.text_input("Users Supported")
     total_incidents = st.text_input("Total Number of Incidents Reported/Received")
     reopened = st.text_input("Tickets Reopened")
     sr_resolved = st.text_input("Service Requests resolved in the month")
