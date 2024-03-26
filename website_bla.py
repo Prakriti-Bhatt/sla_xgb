@@ -131,7 +131,7 @@ def main():
         """
         <style>
             body {
-            background-color: #f0f0f0; 
+            background-color: black; 
                 font-family: Arial, sans-serif;
                background-color: black;
                 color: white;
