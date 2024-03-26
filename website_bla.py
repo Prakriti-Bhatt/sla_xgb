@@ -31,7 +31,7 @@ def predict_sla(sldu, smu, work_bots, user_supported, total_incidents, reopened,
     
     # Predict using the model
     prediction = model.predict([feat_list])
-    probablities = model.predict_proba([feat_list])
+    probabilities = model.predict_proba([feat_list])
     #st.success("Probability of meeting SLAs ", probablities[0][1])
     #st.success("Probability of not meeting SLAs ", probablities[0][0])
     #result = np.array[prediction, probabilities]
