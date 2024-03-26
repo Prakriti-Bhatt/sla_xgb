@@ -131,10 +131,10 @@ def main():
         """
         <style>
             body {
-            background-color: black; 
+            background-color: #f0f0f0; 
                 font-family: Arial, sans-serif;
-               background-color: black;
-                color: white;
+                background-color: #ffffff;
+                color: #333;
             }
             h2 {
                 color: #007bff;
