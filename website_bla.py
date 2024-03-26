@@ -114,7 +114,8 @@ def main():
     
     result = ""
     if st.button("Predict"):
-        result, prob = predict_sla(encoded_sldu, encoded_smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team)
+        prediction, probabilities = predict_sla(encoded_sldu, encoded_smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team)
+        
         st.success("Probability of meeting SLAs: {:.2f}%".format(probabilities[0][1] * 100))
         st.success("Probability of not meeting SLAs: {:.2f}%".format(probabilities[0][0] * 100))
         
