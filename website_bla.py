@@ -17,7 +17,7 @@ dict_smu = {'AMERICAS 1': 0, 'AMERICAS 2': 1, 'APMEA': 2, 'EUROPE': 3, 'NO SMU':
 
 
 
-def predict_note_authentication(sldu, smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team):
+def predict_sla(sldu, smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team):
     
     # Create a list of input features
     input_features = [sldu, smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team]
@@ -34,8 +34,9 @@ def predict_note_authentication(sldu, smu, work_bots, user_supported, total_inci
     probablities = model.predict_proba([feat_list])
     st.success("Probability of meeting SLAs ", probablities[0][1])
     st.success("Probability of not meeting SLAs ", probablities[0][0])
+    result = np.array[prediction, probabilities]
     
-    return prediction
+    return result
 
 
 
@@ -111,12 +112,13 @@ def main():
     incidents_resolved = st.text_input("Total incidents resolved in a month ")
     team = st.text_input("Team Size ")
     
-    result = ""
+    result = []
     if st.button("Predict"):
-        result = predict_note_authentication(encoded_sldu, encoded_smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team)
-
+        result = predict_sla(encoded_sldu, encoded_smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team)
+        st.success("Probability of meeting SLAs ", result[1][0][1])
+        st.success("Probability of not meeting SLAs ", result[1][0][0])
         
-        if result == 1:
+        if result[0] == 1:
             st.success("Program will meet Penalty SLAs")
         else:
             st.error("Program will not meet Penalty SLAs")
