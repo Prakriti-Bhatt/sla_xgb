@@ -17,7 +17,7 @@ dict_smu = {'AMERICAS 1': 0, 'AMERICAS 2': 1, 'APMEA': 2, 'EUROPE': 3, 'NO SMU':
 
 
 
-def predict_sla(sldu, smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team):
+def predict_sla(sldu, smu, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team):
     
     # Create a list of input features
     input_features = [total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team]
@@ -92,8 +92,8 @@ def main():
         encoded_smu = dict_smu[smu]
 
     # Other input fields
-    work_bots = st.text_input("Work done by BOTs")
-    user_supported = st.text_input("Users Supported")
+    #work_bots = st.text_input("Work done by BOTs")
+    #user_supported = st.text_input("Users Supported")
     total_incidents = st.text_input("Total Number of Incidents Reported/Received")
     reopened = st.text_input("Tickets Reopened")
     sr_resolved = st.text_input("Service Requests resolved in the month")
@@ -103,7 +103,7 @@ def main():
     l3 = st.text_input("Number of Incidents resolved by L3 and above team")
     l2 = st.text_input("Number of Incidents resolved by L2 team")
     incident_l1 = st.text_input("Number of Incidents resolved by L1/L1.5 team")
-    first_hop = st.text_input("Number of first hop resolved Incidents")
+    #first_hop = st.text_input("Number of first hop resolved Incidents")
     automation = st.text_input("% Tickets ( Incidents and Service Requests ) fully resolved through automation")
     same_day_incidents = st.text_input("% Same Day Resolution of Incidents")
     reassigned = st.text_input("% Re-Assigned Incidents more than twice")
@@ -114,7 +114,7 @@ def main():
     
     result = ""
     if st.button("Predict"):
-        prediction, probabilities = predict_sla(encoded_sldu, encoded_smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team)
+        prediction, probabilities = predict_sla(encoded_sldu, encoded_smu, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team)
         
         st.success("Probability of meeting SLAs: {:.2f}%".format(probabilities[0][1] * 100))
         #st.success("Probability of not meeting SLAs: {:.2f}%".format(probabilities[0][0] * 100))
