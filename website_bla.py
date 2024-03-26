@@ -31,6 +31,9 @@ def predict_note_authentication(sldu, smu, work_bots, user_supported, total_inci
     
     # Predict using the model
     prediction = model.predict([feat_list])
+    probablities = model.predict_proba([feat_list])
+    st.success("Probability of meeting SLAs ", probablities[0][1])
+    st.success("Probability of not meeting SLAs ", probablities[0][0])
     
     return prediction
 
@@ -111,6 +114,8 @@ def main():
     result = ""
     if st.button("Predict"):
         result = predict_note_authentication(encoded_sldu, encoded_smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team)
+
+        
         if result == 1:
             st.success("Program will meet Penalty SLAs")
         else:
