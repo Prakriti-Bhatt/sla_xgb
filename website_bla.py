@@ -133,8 +133,8 @@ def main():
             body {
             background-color: #f0f0f0; 
                 font-family: Arial, sans-serif;
-                background-color: #000000;
-                color: #ffffff;
+                background-color: #ffffff;
+                color: #333;
             }
             h2 {
                 color: #007bff;
