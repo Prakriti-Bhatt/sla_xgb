@@ -17,7 +17,7 @@ dict_smu = {'AMERICAS 1': 0, 'AMERICAS 2': 1, 'APMEA': 2, 'EUROPE': 3, 'NO SMU':
 
 
 
-def predict_sla(sldu, smu, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team):
+def predict_sla(sldu, smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team):
     
     # Create a list of input features
     input_features = [total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team]
@@ -114,7 +114,7 @@ def main():
     
     result = ""
     if st.button("Predict"):
-        prediction, probabilities = predict_sla(encoded_sldu, encoded_smu, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team)
+        prediction, probabilities = predict_sla(encoded_sldu, encoded_smu, work_bots, user_supported, total_incidents, reopened, sr_resolved, same_day_sr, total_sr, sr_l1, l3, l2, incident_l1, first_hop, automation, same_day_incidents, reassigned, backlog, fte, incidents_resolved, team)
         
         st.success("Probability of meeting SLAs: {:.2f}%".format(probabilities[0][1] * 100))
         #st.success("Probability of not meeting SLAs: {:.2f}%".format(probabilities[0][0] * 100))
